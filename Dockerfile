@@ -5,9 +5,11 @@ RUN apk add --update-cache \
 
 RUN export CGO_ENABLED=0
 
-RUN go get -v github.com/OWASP/Amass/v3/...
+#RUN go get -v github.com/OWASP/Amass/v3/...
+RUN go install -v github.com/owasp-amass/amass/v4/...@master
 
-RUN go get -u github.com/tomnomnom/assetfinder
+#RUN go get -u github.com/tomnomnom/assetfinder
+RUN go install -v github.com/tomnomnom/assetfinder@latest
 
 RUN cd /var/tmp/ && git clone https://github.com/fleetcaptain/Turbolist3r.git; \
     cd /var/tmp/Turbolist3r && pip install -r requirements.txt
@@ -17,9 +19,11 @@ RUN cd /var/tmp/ && git clone https://github.com/shmilylty/OneForAll.git; \
 
 RUN go env GO111MODULE=on && go get github.com/projectdiscovery/chaos-client/cmd/chaos
 
-RUN go get -u github.com/tomnomnom/httprobe
+#RUN go get -u github.com/tomnomnom/httprobe
+RUN go install -v github.com/tomnomnom/httprobe@latest
 
-RUN go get -u github.com/bluecanarybe/ResponseChecker
+#RUN go get -u github.com/bluecanarybe/ResponseChecker
+RUN go install -v github.com/bluecanarybe/ResponseChecker@latest
 
 RUN GO111MODULE=on go get -v github.com/projectdiscovery/httpx/cmd/httpx
 
