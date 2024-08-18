@@ -17,7 +17,7 @@ RUN cd /var/tmp/ && git clone https://github.com/fleetcaptain/Turbolist3r.git; \
 RUN cd /var/tmp/ && git clone https://github.com/shmilylty/OneForAll.git; \
     cd /var/tmp/OneForAll && python3 -m pip install -U pip setuptools wheel && pip3 install -r requirements.txt
 
-RUN go env GO111MODULE=on && go get github.com/projectdiscovery/chaos-client/cmd/chaos
+RUN GO111MODULE=on go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest
 
 #RUN go get -u github.com/tomnomnom/httprobe
 RUN go install -v github.com/tomnomnom/httprobe@latest
@@ -25,7 +25,7 @@ RUN go install -v github.com/tomnomnom/httprobe@latest
 #RUN go get -u github.com/bluecanarybe/ResponseChecker
 RUN go install -v github.com/bluecanarybe/ResponseChecker@latest
 
-RUN GO111MODULE=on go get -v github.com/projectdiscovery/httpx/cmd/httpx
+RUN GO111MODULE=on go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
 RUN go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 
